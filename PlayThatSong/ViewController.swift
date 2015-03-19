@@ -21,11 +21,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        println("fuck it #1")
 
         self.configureAudioSession()
         self.configureAudioPlayer()
-        println("fuck it #2")
 
     }
 
@@ -37,11 +35,8 @@ class ViewController: UIViewController {
 
     // IBActions...
 
-
-
     @IBAction func playButtonPressed(sender: UIButton) {
         self.playMusic()
-
     }
 
     @IBAction func playPreviousButtonPressed(sender: UIButton) {
