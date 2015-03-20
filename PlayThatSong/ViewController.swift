@@ -15,19 +15,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentSongLabel: UILabel!
 
     var audioSession: AVAudioSession!
-    var audioPlayer: AVAudioPlayer!
+//    var audioPlayer: AVAudioPlayer!
+    var audioQueuePlayer: AVQueuePlayer!
 
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
         self.configureAudioSession()
-        self.configureAudioPlayer()
-
+//        self.configureAudioPlayer()
+        self.configureAudioQueuePlayer()
     }
 
+
     override func didReceiveMemoryWarning() {
+
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -36,17 +40,23 @@ class ViewController: UIViewController {
     // IBActions...
 
     @IBAction func playButtonPressed(sender: UIButton) {
+
         self.playMusic()
     }
 
+
     @IBAction func stopButtonPressed(sender: UIButton) {
-        self.audioPlayer.stop()
+//        self.audioPlayer.stop()
+        self.audioQueuePlayer.pause()
 
     }
+
 
     @IBAction func playPreviousButtonPressed(sender: UIButton) {
 
+
     }
+
 
     @IBAction func playNextButtonPressed(sender: UIButton) {
 
@@ -55,7 +65,9 @@ class ViewController: UIViewController {
 
     // Audio...
 
+
     func configureAudioSession () {
+
         self.audioSession = AVAudioSession.sharedInstance()
 
         var categoryError:NSError?
@@ -66,30 +78,46 @@ class ViewController: UIViewController {
         var success = self.audioSession.setActive(true, error: &activeError)
         if !success {
             println("error making audio session active \(activeError)")
-
         }
     }
 
-    func configureAudioPlayer () {
-        var songPath = NSBundle.mainBundle().pathForResource("Open Source - Sending My Signal", ofType: "mp3")
-        var songURL = NSURL.fileURLWithPath(songPath!)
+//    func configureAudioPlayer () {
+//        var songPath = NSBundle.mainBundle().pathForResource("Open Source - Sending My Signal", ofType: "mp3")
+//        var songURL = NSURL.fileURLWithPath(songPath!)
+//
+//        println("SongURL: \(songURL)")
+//
+//        var songError: NSError?
+//        self.audioPlayer = AVAudioPlayer(contentsOfURL: songURL, error: &songError)
+//        println("song error: \(songError)")
+//        self.audioPlayer.numberOfLoops = 0
+//
+//    }
 
-        println("SongURL: \(songURL)")
 
-        var songError: NSError?
-        self.audioPlayer = AVAudioPlayer(contentsOfURL: songURL, error: &songError)
-        println("song error: \(songError)")
-        self.audioPlayer.numberOfLoops = 0
+    func configureAudioQueuePlayer () {
 
+        let songs = createSongs()
+        self.audioQueuePlayer = AVQueuePlayer(items: songs)
+
+        // when song is finished - receive notification! 
+        for var songIndex = 0; songIndex < songs.count; songIndex++ { // send msg to this class
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "songEnded:", name: AVPlayerItemDidPlayToEndTimeNotification, object: songs[songIndex])
+        }
     }
+
 
     func playMusic () {
-        self.audioPlayer.prepareToPlay()
-        self.audioPlayer.play()
 
+        //Implement to use the audioplayer we replaced this with the audio queue player
+//        self.audioPlayer.prepareToPlay()
+//        self.audioPlayer.play()
+        self.audioQueuePlayer.play()
     }
 
+
     func createSongs () -> [AnyObject] { // creates an array with song as array element
+
         let firstSongPath = NSBundle.mainBundle().pathForResource("CLASSICAL SOLITUDE", ofType: "wav")
         let secondSongPath = NSBundle.mainBundle().pathForResource("Timothy Pinkham - The Knolls of Doldesh", ofType: "mp3")
         let thirdSongPath = NSBundle.mainBundle().pathForResource("Open Source - Sending My Signal", ofType: "mp3")
@@ -108,7 +136,6 @@ class ViewController: UIViewController {
         let songs: [AnyObject] = [firstPlayItem, secondPlayItem, thirdPlayItem]
 
         return songs
-
     }
 
 }
