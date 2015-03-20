@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 
     var audioSession: AVAudioSession!
     var audioPlayer: AVAudioPlayer!
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,11 @@ class ViewController: UIViewController {
 
     @IBAction func playButtonPressed(sender: UIButton) {
         self.playMusic()
+    }
+
+    @IBAction func stopButtonPressed(sender: UIButton) {
+        self.audioPlayer.stop()
+
     }
 
     @IBAction func playPreviousButtonPressed(sender: UIButton) {
@@ -97,9 +102,12 @@ class ViewController: UIViewController {
         // bring them in a playable way
         let firstPlayItem = AVPlayerItem(URL: firstSongURL)
         let secondPlayItem = AVPlayerItem(URL: secondSongURL)
-        let thirdPlayItems = AVPlayerItem(URL: thirdSongURL)
+        let thirdPlayItem = AVPlayerItem(URL: thirdSongURL)
 
+        // creates the array
+        let songs: [AnyObject] = [firstPlayItem, secondPlayItem, thirdPlayItem]
 
+        return songs
 
     }
 
