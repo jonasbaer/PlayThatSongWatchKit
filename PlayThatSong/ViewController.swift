@@ -18,6 +18,8 @@ class ViewController: UIViewController {
 //    var audioPlayer: AVAudioPlayer!
     var audioQueuePlayer: AVQueuePlayer!
 
+    var currentSongIndex:Int!
+
 
     override func viewDidLoad() {
 
@@ -37,7 +39,7 @@ class ViewController: UIViewController {
     }
 
 
-    // IBActions...
+    // >IBActions...<
 
     @IBAction func playButtonPressed(sender: UIButton) {
 
@@ -46,24 +48,59 @@ class ViewController: UIViewController {
 
 
     @IBAction func stopButtonPressed(sender: UIButton) {
-//        self.audioPlayer.stop()
-        self.audioQueuePlayer.pause()
 
+        //        self.audioPlayer.stop()
+        self.audioQueuePlayer.pause()
     }
 
 
     @IBAction func playPreviousButtonPressed(sender: UIButton) {
 
+        // there is no predefined function like below ;)
 
+
+        // no index back before 0 !
+        if currentSongIndex > 0 {
+            self.audioQueuePlayer.pause()
+
+            // reset the time to 0
+            self.audioQueuePlayer.seekToTime(kCMTimeZero, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+
+            // create temp var to show where we are and reduce by 1
+            let temporaryNowPlayIndex = currentSongIndex
+            // returns a array with all our MVP Items
+            let temporaryPlayList = self.createSongs()
+
+            // remove all items out of our queue
+            self.audioQueuePlayer.removeAllItems()
+
+            // recreate our queue - go back -1 from current song
+            for var index = temporaryNowPlayIndex - 1; index < temporaryPlayList.count; index++ {
+
+                // repopulating our queue - in a loop
+                self.audioQueuePlayer.insertItem(temporaryPlayList[index] as AVPlayerItem, afterItem: nil)
+            }
+
+            // update current song Index
+            self.currentSongIndex = temporaryNowPlayIndex - 1
+
+            // 2nd time needed - iOS BUG :(
+            self.audioQueuePlayer.seekToTime(kCMTimeZero, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+
+            // play it :)
+            self.audioQueuePlayer.play()
+        }
     }
 
 
     @IBAction func playNextButtonPressed(sender: UIButton) {
 
+        self.audioQueuePlayer.advanceToNextItem()
+        self.currentSongIndex = self.currentSongIndex + 1
     }
 
 
-    // Audio...
+    // >Audio...<
 
 
     func configureAudioSession () {
@@ -113,6 +150,8 @@ class ViewController: UIViewController {
 //        self.audioPlayer.prepareToPlay()
 //        self.audioPlayer.play()
         self.audioQueuePlayer.play()
+        currentSongIndex = 0
+
     }
 
 
@@ -136,6 +175,14 @@ class ViewController: UIViewController {
         let songs: [AnyObject] = [firstPlayItem, secondPlayItem, thirdPlayItem]
 
         return songs
+    }
+
+
+    // >audio notification<
+
+    func songEnded (notification: NSNotification) {
+
+        self.currentSongIndex = self.currentSongIndex + 1
     }
 
 }
