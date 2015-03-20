@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     @IBAction func playButtonPressed(sender: UIButton) {
 
         self.playMusic()
+        self.updateUI()
     }
 
 
@@ -90,6 +91,7 @@ class ViewController: UIViewController {
             // play it :)
             self.audioQueuePlayer.play()
         }
+        self.updateUI()
     }
 
 
@@ -97,6 +99,7 @@ class ViewController: UIViewController {
 
         self.audioQueuePlayer.advanceToNextItem()
         self.currentSongIndex = self.currentSongIndex + 1
+        self.updateUI()
     }
 
 
@@ -149,9 +152,22 @@ class ViewController: UIViewController {
         //Implement to use the audioplayer we replaced this with the audio queue player
 //        self.audioPlayer.prepareToPlay()
 //        self.audioPlayer.play()
-        self.audioQueuePlayer.play()
-        currentSongIndex = 0
 
+
+        if audioQueuePlayer.rate > 0 && audioQueuePlayer.error == nil {
+
+            self.audioQueuePlayer.pause()
+        }
+
+        else if currentSongIndex == nil {
+
+            self.audioQueuePlayer.play()
+            currentSongIndex = 0
+        }
+        else {
+
+            self.audioQueuePlayer.play()
+        }
     }
 
 
@@ -183,7 +199,46 @@ class ViewController: UIViewController {
     func songEnded (notification: NSNotification) {
 
         self.currentSongIndex = self.currentSongIndex + 1
+        self.updateUI()
     }
 
+
+    // >UI Update helpers<
+
+    func updateUI () {
+
+        self.currentSongLabel.text = currentSongName()
+
+        if audioQueuePlayer.rate > 0 && audioQueuePlayer.error == nil {
+            self.playButton.setTitle("Pause", forState: UIControlState.Normal)
+        }
+        else {
+            self.playButton.setTitle("Play", forState: UIControlState.Normal)
+        }
+    }
+
+
+
+    // this function has to return a string == "-> String"
+    func currentSongName () -> String {
+
+        var currentSong: String
+
+        if currentSongIndex == 0 {
+            currentSong = "Classical Solitude"
+        }
+        else if currentSongIndex == 1 {
+            currentSong = "The Knolls of Doldesh"
+        }
+        else if currentSongIndex == 2 {
+            currentSong = "Sending my Signal"
+        }
+        else {
+            currentSong = ("No Song Playing")
+            println("Ooooops something went wrong :(")
+        }
+        
+        return currentSong
+    }
 }
 
