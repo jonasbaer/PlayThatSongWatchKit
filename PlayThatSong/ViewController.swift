@@ -84,6 +84,24 @@ class ViewController: UIViewController {
 
     }
 
+    func createSongs () -> [AnyObject] { // creates an array with song as array element
+        let firstSongPath = NSBundle.mainBundle().pathForResource("CLASSICAL SOLITUDE", ofType: "wav")
+        let secondSongPath = NSBundle.mainBundle().pathForResource("Timothy Pinkham - The Knolls of Doldesh", ofType: "mp3")
+        let thirdSongPath = NSBundle.mainBundle().pathForResource("Open Source - Sending My Signal", ofType: "mp3")
+
+        // create urls
+        let firstSongURL = NSURL.fileURLWithPath(firstSongPath!)
+        let secondSongURL = NSURL.fileURLWithPath(secondSongPath!)
+        let thirdSongURL = NSURL.fileURLWithPath(thirdSongPath!)
+
+        // bring them in a playable way
+        let firstPlayItem = AVPlayerItem(URL: firstSongURL)
+        let secondPlayItem = AVPlayerItem(URL: secondSongURL)
+        let thirdPlayItems = AVPlayerItem(URL: thirdSongURL)
+
+
+
+    }
 
 }
 

@@ -53,7 +53,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="currentSong" destination="JNv-GT-qqi" id="eac-ux-vy2"/>
                         <outlet property="currentSongLabel" destination="JNv-GT-qqi" id="BhN-9v-Ig7"/>
                         <outlet property="playButton" destination="VC7-8r-smt" id="7XY-g9-Dx0"/>
                     </connections>
