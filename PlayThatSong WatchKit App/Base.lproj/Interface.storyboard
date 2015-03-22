@@ -10,8 +10,39 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PlayThatSong_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="1" alignment="left" text="TEST !!!!" id="gEC-QM-aCx"/>
+                        <label width="1" height="52.5" alignment="left" text="Song" textAlignment="center" numberOfLines="0" id="9aO-Jf-1NI">
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                        </label>
+                        <group width="1" alignment="left" verticalAlignment="center" id="3UP-CM-Qhd">
+                            <items>
+                                <button width="59" alignment="left" title="&lt;" id="ltG-Hn-TdU">
+                                    <color key="backgroundColor" red="0.42531027913996089" green="0.48086959930991346" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                    <connections>
+                                        <action selector="previousSongButtonPressed" destination="AgC-eL-Hgc" id="fwE-Y7-3JC"/>
+                                    </connections>
+                                </button>
+                                <button width="59" alignment="right" title="&gt;" id="Ze5-nr-oR5">
+                                    <color key="backgroundColor" red="0.42531027910000002" green="0.48086959930000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                    <connections>
+                                        <action selector="nextSongButtonPressed" destination="AgC-eL-Hgc" id="KFa-pK-dcG"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Play" id="dmm-Ex-fSa">
+                            <color key="backgroundColor" red="1" green="0.798118799561507" blue="0.24405856419541105" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                            <connections>
+                                <action selector="playSongButtonPressed" destination="AgC-eL-Hgc" id="FrB-2P-H6k"/>
+                            </connections>
+                        </button>
                     </items>
+                    <color key="backgroundColor" red="0.89713541669999997" green="0.53964002420000001" blue="0.16043607930000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="songTitleLabel" destination="9aO-Jf-1NI" id="ECe-ET-XIy"/>
+                    </connections>
                 </controller>
             </objects>
         </scene>
