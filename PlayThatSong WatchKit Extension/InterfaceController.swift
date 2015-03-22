@@ -16,8 +16,6 @@ class InterfaceController: WKInterfaceController {
 
 
 
-
-
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
@@ -45,6 +43,14 @@ class InterfaceController: WKInterfaceController {
     }
 
     @IBAction func playSongButtonPressed() {
+
+        var info = ["key" : "Value"]
+
+        WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
+
+            println("reply \(reply), error \(error)")
+        })
+
 
     }
 }
