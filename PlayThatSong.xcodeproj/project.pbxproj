@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3A566C1ABFDE6F00978D41 /* WatchKitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3A566B1ABFDE6F00978D41 /* WatchKitInfo.swift */; };
 		EE6454B61AB9A7B700278EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6454B51AB9A7B700278EDA /* AppDelegate.swift */; };
 		EE6454B81AB9A7B700278EDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6454B71AB9A7B700278EDA /* ViewController.swift */; };
 		EE6454BB1AB9A7B700278EDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE6454B91AB9A7B700278EDA /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EE3A566B1ABFDE6F00978D41 /* WatchKitInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchKitInfo.swift; sourceTree = "<group>"; };
 		EE6454B01AB9A7B700278EDA /* PlayThatSong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayThatSong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6454B41AB9A7B700278EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE6454B51AB9A7B700278EDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				EE6454B51AB9A7B700278EDA /* AppDelegate.swift */,
 				EE6454B71AB9A7B700278EDA /* ViewController.swift */,
+				EE3A566B1ABFDE6F00978D41 /* WatchKitInfo.swift */,
 				EE6454B91AB9A7B700278EDA /* Main.storyboard */,
 				EE6454BC1AB9A7B700278EDA /* Images.xcassets */,
 				EE6454BE1AB9A7B700278EDA /* LaunchScreen.xib */,
@@ -380,6 +383,7 @@
 			files = (
 				EE6454B81AB9A7B700278EDA /* ViewController.swift in Sources */,
 				EE6454B61AB9A7B700278EDA /* AppDelegate.swift in Sources */,
+				EE3A566C1ABFDE6F00978D41 /* WatchKitInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
