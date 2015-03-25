@@ -50,13 +50,6 @@ class ViewController: UIViewController {
     }
 
 
-    @IBAction func stopButtonPressed(sender: UIButton) {
-
-        //        self.audioPlayer.stop()
-        self.audioQueuePlayer.pause()
-    }
-
-
     @IBAction func playPreviousButtonPressed(sender: UIButton) {
 
         // there is no predefined function like below ;)
@@ -256,9 +249,20 @@ class ViewController: UIViewController {
 
             let requestedAction: String = watchKitInfo.playerRequest!
 
-            self.playMusic()
+            switch requestedAction {
+                case "Play":
+                    self.playMusic()
+                case "Next":
+                    self.playNextButtonPressed(UIButton()) // UIButton() is just a fake instance
+                case "Previous":
+                    self.playPreviousButtonPressed(UIButton())
+
+                default:
+                    println("Default Value printed - Something went wrong!")
+            }
+
+            self.updateUI()
         }
     }
-
 }
 

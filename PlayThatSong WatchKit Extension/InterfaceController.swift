@@ -37,18 +37,24 @@ class InterfaceController: WKInterfaceController {
 
     @IBAction func previousSongButtonPressed() {
 
+        var info = [key : "Previous"]
+        WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
+            println("reply \(reply) error \(error)")
+        })
     }
 
     @IBAction func nextSongButtonPressed() {
 
+        var info = [key : "Next"]
+        WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
+        println("reply \(reply) error \(error)")
+        })
     }
 
     @IBAction func playSongButtonPressed() {
 
         var info = [key : "Play"]
-
         WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
-
             println("reply \(reply) error \(error)")
         })
 

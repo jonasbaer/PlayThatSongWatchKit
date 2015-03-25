@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIZ-ch-TaX">
-                                <rect key="frame" x="16" y="89" width="37" height="30"/>
+                                <rect key="frame" x="83" y="89" width="37" height="30"/>
                                 <color key="backgroundColor" red="0.89713541669999997" green="0.89208555320000005" blue="0.41712884140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="&lt;">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Vd-ZU-dR7">
-                                <rect key="frame" x="258" y="89" width="36" height="30"/>
+                                <rect key="frame" x="247" y="89" width="36" height="30"/>
                                 <color key="backgroundColor" red="0.89713541669999997" green="0.89208555320000005" blue="0.41712884140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="&gt;">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,14 +37,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No song playing yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNv-GT-qqi">
-                                <rect key="frame" x="16" y="139" width="278" height="66"/>
+                                <rect key="frame" x="83" y="139" width="200" height="66"/>
                                 <color key="backgroundColor" red="0.77753957774249916" green="0.80950314153439151" blue="0.80426174077666057" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VC7-8r-smt">
-                                <rect key="frame" x="80" y="89" width="70" height="30"/>
+                                <rect key="frame" x="147" y="89" width="70" height="30"/>
                                 <color key="backgroundColor" red="0.89713541669999997" green="0.89208555320000005" blue="0.41712884140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,18 +53,8 @@
                                     <action selector="playButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wYq-En-Ase"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjc-w0-Qpb">
-                                <rect key="frame" x="175" y="89" width="57" height="30"/>
-                                <color key="backgroundColor" red="0.89713541669999997" green="0.89208555320000005" blue="0.41712884140000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Pause">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rFE-VY-neE"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Music Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmI-7X-F8i">
-                                <rect key="frame" x="16" y="36" width="278" height="34"/>
+                                <rect key="frame" x="83" y="36" width="200" height="34"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
