@@ -11,7 +11,7 @@ import Foundation
 let key = "FunctionRequestKey"
 
 // class existing in order to store information transfered beween WatchKit and Iphone App
-class watchKitInfo {
+class WatchKitInfo {
 
     var replyBlock: ([NSObject : AnyObject]!) -> Void // same type like the one in AppDelegate.swift
     var playerRequest: String? // it is optional = "?" to cover the case we don't get a key back
@@ -19,7 +19,8 @@ class watchKitInfo {
     init (playerDictionary: [NSObject : AnyObject], reply: ([NSObject : AnyObject]!) -> Void) {
 
         // when playerDictionary is not nil ... then...
-        if let playerDictionary = playerDictionary as? [String: String] { // AnyObject above changed to String !
+
+        if let playerDictionary = playerDictionary as? [String : String] { // AnyObject above changed to String !
             playerRequest = playerDictionary[key]
         }
         else {

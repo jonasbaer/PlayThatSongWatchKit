@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         self.configureAudioSession()
 //        self.configureAudioPlayer()
         self.configureAudioQueuePlayer()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("handleRequest:"), name: "WatchKitDidMakeRequest", object: nil)
     }
 
 
@@ -240,5 +242,23 @@ class ViewController: UIViewController {
         
         return currentSong
     }
+
+
+    // JB: WatchKit Notification
+
+    // everything explained http://bitfountain.io/courses/iwatch-course/lectures/83927 03:00
+
+
+    func handleRequest (notification : NSNotification) {
+
+        let watchKitInfo =  notification.object! as WatchKitInfo
+        if watchKitInfo.playerRequest != nil {
+
+            let requestedAction: String = watchKitInfo.playerRequest!
+
+            self.playMusic()
+        }
+    }
+
 }
 

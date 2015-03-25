@@ -39,7 +39,7 @@
                             </connections>
                         </button>
                     </items>
-                    <color key="backgroundColor" red="0.80312915230422743" green="0.86023547247791943" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
                     <connections>
                         <outlet property="songTitleLabel" destination="9aO-Jf-1NI" id="ECe-ET-XIy"/>
                     </connections>

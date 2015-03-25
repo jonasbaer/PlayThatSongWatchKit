@@ -45,11 +45,11 @@ class InterfaceController: WKInterfaceController {
 
     @IBAction func playSongButtonPressed() {
 
-        var info = [key : "SomeOtherValue"]
+        var info = [key : "Play"]
 
         WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
 
-            println("reply \(reply), error \(error)")
+            println("reply \(reply) error \(error)")
         })
 
 
