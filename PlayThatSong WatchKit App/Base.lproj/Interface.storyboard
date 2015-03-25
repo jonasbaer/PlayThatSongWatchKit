@@ -41,6 +41,7 @@
                     </items>
                     <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
                     <connections>
+                        <outlet property="playButtonLabel" destination="dmm-Ex-fSa" id="Kgx-wq-gnY"/>
                         <outlet property="songTitleLabel" destination="9aO-Jf-1NI" id="ECe-ET-XIy"/>
                     </connections>
                 </controller>

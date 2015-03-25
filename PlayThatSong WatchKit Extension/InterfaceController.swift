@@ -14,6 +14,7 @@ let key = "FunctionRequestKey"
 class InterfaceController: WKInterfaceController {
 
     @IBOutlet weak var songTitleLabel: WKInterfaceLabel!
+    @IBOutlet weak var playButtonLabel: WKInterfaceButton!
 
 
 
@@ -40,6 +41,9 @@ class InterfaceController: WKInterfaceController {
         var info = [key : "Previous"]
         WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
             println("reply \(reply) error \(error)")
+            if reply != nil {
+                self.updateLabel(reply as [String : String])
+            }
         })
     }
 
@@ -47,7 +51,10 @@ class InterfaceController: WKInterfaceController {
 
         var info = [key : "Next"]
         WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
-        println("reply \(reply) error \(error)")
+            println("reply \(reply) error \(error)")
+            if reply != nil {
+                self.updateLabel(reply as [String : String])
+            }
         })
     }
 
@@ -56,8 +63,15 @@ class InterfaceController: WKInterfaceController {
         var info = [key : "Play"]
         WKInterfaceController.openParentApplication(info, reply: { (reply, error) -> Void in
             println("reply \(reply) error \(error)")
+            if reply != nil {
+                self.updateLabel(reply as [String : String])
+            }
         })
+    }
 
-
+    func updateLabel (songDictionary : [String : String]) { // allows to use var songDictionary in this function 
+        let songName = songDictionary["currentSong"]
+        self.songTitleLabel.setText(songName)
     }
 }
+

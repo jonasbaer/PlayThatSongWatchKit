@@ -261,6 +261,10 @@ class ViewController: UIViewController {
                     println("Default Value printed - Something went wrong!")
             }
 
+            // update UI in WatchKit
+            let currentSongDictionary = ["currentSong" : currentSongName()]
+            watchKitInfo.replyBlock(currentSongDictionary)
+
             self.updateUI()
         }
     }

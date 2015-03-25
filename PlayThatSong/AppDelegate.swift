@@ -46,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // function used to allow communication between WatchKit and Iphone App
 
     func application(application: UIApplication!, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]!, reply: (([NSObject : AnyObject]!) -> Void)!) {
-
         let watchKitInformation = WatchKitInfo(playerDictionary: userInfo, reply: reply)
 
 
@@ -54,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         NSNotificationCenter.defaultCenter().postNotificationName("WatchKitDidMakeRequest", object: watchKitInformation)
 
-        reply (["Working" : "Now"])
+        reply (["Working" : "Now"]) // showing in the console that everything is smooth :)
     }
 }
 
